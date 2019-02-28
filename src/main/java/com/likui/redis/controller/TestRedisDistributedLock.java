@@ -33,11 +33,11 @@ public class TestRedisDistributedLock {
             Integer vaule = Integer.parseInt(jedis.get("number"));
             vaule = vaule -1;
             jedis.set("number",vaule.toString());
-            /*try {
+            try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
 
-            }*/
+            }
             boolean flag2 = RedisTool.releaseDistributedLock(jedis,"123",requestId);
             if(flag2){
                 System.out.println("解决成功+++++++++++++++++++++++++++++++++++++++++++++++++");
